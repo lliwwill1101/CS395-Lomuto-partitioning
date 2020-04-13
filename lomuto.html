@@ -12,23 +12,13 @@
 		<script type="text/javascript" src="headerFunction.js"/>
 		<script type="text/javascript" src="pseudocodeFunctions.js"/>
 		
-		<script type="text/javascript">
-			/*partition(arr[], lo, hi) 
-				pivot = arr[hi]
-				i = lo     // place for swapping
-				for j := lo to hi – 1 do
-					if arr[j] <= pivot then
-						swap arr[i] with arr[j]
-						i = i + 1
-				swap arr[i] with arr[hi]
-				return i*/
-		</script>
+		<script type="text/javascript" src="lomuto.js"/>
 	</head>
 <body onload="welcome()">
 	<!--Header -->
 	<script>createHeader("Lomuto Partitioning");</script>
 	<p>Lomuto partitioning is a method of partitioning an array that uses the last value as the "pivot".</p>
-	<script>//welcome();</script>
+	<script>welcome();</script>
 	
 	<div>
 		<input type="number" id="n0">
