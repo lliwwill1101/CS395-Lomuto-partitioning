@@ -12,7 +12,15 @@
 		<script type="text/javascript" src="../pseudocodeFunctions.js"/>
 		
 		<script type="text/javascript">
-			<--Put your scripts here>
+			partition(arr[], lo, hi) 
+				pivot = arr[hi]
+				i = lo     // place for swapping
+				for j := lo to hi – 1 do
+					if arr[j] <= pivot then
+						swap arr[i] with arr[j]
+						i = i + 1
+				swap arr[i] with arr[hi]
+				return i
 		</script>
 	</head>
 <body onload="welcome()">
