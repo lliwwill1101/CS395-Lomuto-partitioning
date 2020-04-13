@@ -1,6 +1,6 @@
 function welcome() {
    var arr = document.getElementsByTagName("input");
-   for(var element in arr) {
-      element.innerHTML = getRandomInt(99);
+   for(var i = 0; i < arr.length; i++) {
+      arr[i].value = getRandomInt(99);
    }
 }
