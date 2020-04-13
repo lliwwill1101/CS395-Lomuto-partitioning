@@ -30,14 +30,16 @@ function step() {
       lo = 0;
       hi = arr.length - 1;
       pivot = arr[hi];
-      pivotVal = pivot.value;
+      pivotVal = Number(pivot.value);
       pivot.setAttribute("class", "pivot");
       document.getElementById("instructions").innerText = "Choose pivot";
+      sayIt(document.getElementById("instructions").innerText);
       tmp = lo;
       j = lo;
    } else {
       clear();
       lomuto();
+      sayIt(document.getElementById("instructions").innerText);
    }
 }
 
@@ -60,7 +62,7 @@ function lomuto() {
       if(j < hi) {
          document.getElementById("instructions").innerText = "Testing against pivot";
          arr[j].setAttribute("class", "testing");
-         if(arr[j].value <= pivotVal) {
+         if(Number(arr[j].value) <= pivotVal) {
             checked = true;
          } else {
             j++;
@@ -73,6 +75,7 @@ function lomuto() {
          for(var i = 0; i < arr.length; i++) {
             arr[i].setAttribute("class", "finished");
          }
+         arr[tmp].setAttribute("class", "pivot");
       }
    }
 }

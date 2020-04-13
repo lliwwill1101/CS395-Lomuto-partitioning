@@ -22,3 +22,16 @@ input {
 .testing {
   border: 1px solid orange;
 }
+
+body {
+  background-color: #FFFFFF
+}
+
+h1 {
+  color: #FFFFFF;
+  text-align: center;
+}
+
+p {
+  color: #191919;
+} 

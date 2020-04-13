@@ -4,20 +4,19 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<!--Chrome browser will display response in the form of html page by using above line. -->
-		<link rel="stylesheet" href="general.css">
 		<link rel="stylesheet" href="lomuto.css">
 		
-		<script type="text/javascript" src="general.js"></script>
-		<script type="text/javascript" src="tableFunctions.js"></script>
-		<script type="text/javascript" src="headerFunction.js"></script>
-		<script type="text/javascript" src="pseudocodeFunctions.js"></script>
+		<script type="text/javascript" src="../general.js"></script>
+		<script type="text/javascript" src="../tableFunctions.js"></script>
+		<script type="text/javascript" src="../headerFunction.js"></script>
+		<script type="text/javascript" src="../pseudocodeFunctions.js"></script>
 		
 		<script type="text/javascript" src="lomuto.js"></script>
 	</head>
 <body onload="welcome()">
 	<!--Header -->
 	<script>createHeader("Lomuto Partitioning");</script>
-	<p id="desc">Lomuto partitioning is a method of partitioning an array that uses the last value as the "pivot". All values less than the pivot will be left of it and all values greater than the pivot will be right of it in the partitioned array.</p>
+	<p id="desc">Lomuto partitioning is a method of partitioning an array that uses the last value as the "pivot". All values less than or equal to the pivot will be left of it and all values greater than the pivot will be right of it in the partitioned array.</p>
 	<p id="instructions">Enter the values of the starting array:</p>
 	<div>
 		<input name="cell" type="number" min="0" max="99">
