@@ -17,20 +17,21 @@
 <body onload="welcome()">
 	<!--Header -->
 	<script>createHeader("Lomuto Partitioning");</script>
-	<p>Lomuto partitioning is a method of partitioning an array that uses the last value as the "pivot".</p>
-	
+	<p id="desc">Lomuto partitioning is a method of partitioning an array that uses the last value as the "pivot".</p>
+	<p>Enter the values of the starting array:</p>
 	<div>
-		<input type="number" id="n0" min="0" max="99">
-		<input type="number" id="n1" min="0" max="99">	
-		<input type="number" id="n2" min="0" max="99">	
-		<input type="number" id="n3" min="0" max="99">	
-		<input type="number" id="n4" min="0" max="99">	
-		<input type="number" id="n5" min="0" max="99">	
-		<input type="number" id="n6" min="0" max="99">	
-		<input type="number" id="n7" min="0" max="99">	
-		<input type="number" id="n8" min="0" max="99">	
-		<input type="number" id="n9" min="0" max="99">	
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
+		<input name="cell" type="number" min="0" max="99">
 	</div>
+	<button onclick="step()">Step</button>
 
 	<script>document.getElementById("KCapacity").onchange = function(){funKCapacity()};</script>
 		<br>

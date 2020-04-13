@@ -2,3 +2,15 @@ input {
   width: 5%;
   margin: 1%;
 }
+
+.highlighted {
+  border: 1px solid blueviolet;
+}
+
+.pivot {
+  border: 1px solid red;
+}
+
+.unhighlighted {
+  border: none;
+}
