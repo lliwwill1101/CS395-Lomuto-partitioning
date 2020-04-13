@@ -14,3 +14,11 @@ input {
 .unhighlighted {
   border: none;
 }
+
+.finished {
+  border: 1px solid green;
+}
+
+.testing {
+  border: 1px solid orange;
+}
