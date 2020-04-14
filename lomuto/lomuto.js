@@ -6,6 +6,8 @@ var lo, hi;
 var tmp;
 var j;
 var checked = false;
+var state = 0; // 0 waiting for continue, 1 pivot testing waiting for swap or don't swap
+var PSID = "myPseudocodeTable";
 
 function welcome() {
    sayIt(document.getElementById("desc").innerText);
@@ -13,6 +15,7 @@ function welcome() {
    for(var i = 0; i < arr.length; i++) {
       arr[i].value = getRandomInt(99);
    }
+   createPseudocodeTable(PSID);
 }
 
 function clear() {
@@ -21,8 +24,9 @@ function clear() {
    }
 }
 
-function step() {
+function step(swapVar){
    if(!started) {
+	  if(swapVar!==3) return;
       started = true;
       for(var i = 0; i < arr.length; i++) {
          arr[i].disabled = true;
@@ -32,14 +36,24 @@ function step() {
       pivot = arr[hi];
       pivotVal = Number(pivot.value);
       pivot.setAttribute("class", "pivot");
-      document.getElementById("instructions").innerText = "Choose pivot";
-      sayIt(document.getElementById("instructions").innerText);
+      appendPseudocode(PSID, "Select the last element, "+ pivot.value +" as the pivot.");
       tmp = lo;
       j = lo;
+	  state=0;
    } else {
+	   
+	  if( state===1){
+		if( swapVar === 0 && checked){
+			appendPseudocode(PSID, "You should swap because " + arr[j].value + "<=" + pivotVal );
+			return;
+		}else if(swapVar === 1 && !checked){
+			appendPseudocode(PSID, "You should NOT swap because " + arr[j-1].value + ">" + pivotVal);
+			return;
+		}else if(swapVar === 3) return;
+	  }else if(state === 0 && swapVar !== 3) return;
+	  
       clear();
       lomuto();
-      sayIt(document.getElementById("instructions").innerText);
    }
 }
 
@@ -49,7 +63,8 @@ function swap(a, b) {
    var val = a.value;
    a.value = b.value;
    b.value = val;
-   document.getElementById("instructions").innerText = "Swap " + a.value + " and " + b.value;
+   appendPseudocode(PSID, "Swap " + a.value + " and " + b.value);
+   state=0;
 }
 
 function lomuto() {
@@ -59,8 +74,10 @@ function lomuto() {
       tmp++;
       j++;
    } else {
+	  arr[tmp].setAttribute("class", "highlighted");
       if(j < hi) {
-         document.getElementById("instructions").innerText = "Testing against pivot";
+         appendPseudocode(PSID, "Test "+ arr[j].value +" against the pivot (Swap or don't swap)");
+		 state=1;
          arr[j].setAttribute("class", "testing");
          if(Number(arr[j].value) <= pivotVal) {
             checked = true;
@@ -68,10 +85,11 @@ function lomuto() {
             j++;
          }
       } else if(j === hi) {
+		 appendPseudocode(PSID,"One final swap to put the pivot in the correct place");
          swap(arr[tmp], arr[hi]);
          j++;
       }else {
-         document.getElementById("instructions").innerText = "Finished!";
+         appendPseudocode(PSID,"Finished!");
          for(var i = 0; i < arr.length; i++) {
             arr[i].setAttribute("class", "finished");
          }
